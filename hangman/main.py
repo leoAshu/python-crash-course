@@ -57,6 +57,7 @@ stages = ['''
 =========
 ''']
 
+lives = 6
 word_list = ['aardvark', 'baboon', 'camel']
 
 chosen_word = random.choice(word_list)
@@ -68,9 +69,18 @@ while not end_of_game:
 
     for idx in range(len(chosen_word)):
         if chosen_word[idx] == guess:
-            # print('Right')
             display[idx] = guess
 
-    print(display)
+    print(' '.join(display))
+    
+    if guess not in chosen_word:
+        lives -=1
+        if lives == 0:
+            end_of_game = True
+            print('You lose.')
+        
     if '_' not in display:
         end_of_game = True
+        print('You win.')
+    
+    print(stages[lives])
