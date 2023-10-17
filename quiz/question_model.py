@@ -1,5 +1,5 @@
 class Question:
 
-    def __init__(self, question, answer) -> None:
-        self.question = question
+    def __init__(self, text, answer) -> None:
+        self.text = text
         self.answer = answer
